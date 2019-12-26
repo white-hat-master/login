@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignUp</title>
+
+
+    <script>
+        function myfunction() {
+
+	var name = document.forms["RegForm"]["name"];			 
+	var email = document.forms["RegForm"]["email"]; 
+	var f1 = document.forms["RegForm"]["f1"]; 
+	var education = document.forms["RegForm"]["education"]; 
+	var city = document.forms["RegForm"]["city"]; 
+	var state = document.forms["RegForm"]["state"]; 
+	var gender = document.forms["RegForm"]["gender"]; 
+	var password = document.forms["RegForm"]["password"]; 
+	var password2 = document.forms["RegForm"]["password2"]; 
+
+	if (name.value == "")								 
+	{ 
+        document.getElementById('name').innerHTML = 'Please Enter your name'
+		return false; 
+	} 
+
+	if (email.value == "")								 
+	{ 
+        document.getElementById('email').innerHTML = 'Please Enter your email'
+		return false; 
+	} 
+
+	if (city.value == "")						 
+	{ 
+        document.getElementById('city').innerHTML = 'Please select city'
+		return false; 
+    }
+    
+	if (gender.value == "")						 
+	{ 
+        document.getElementById('gender').innerHTML = 'Please select gender'
+		return false; 
+	} 
+ 
+	if (f1.value == "")						 
+	{ 
+        
+        document.getElementById('file').innerHTML = 'Please select files'
+		return false; 
+	} 
+	if (state.value == "")						 
+	{ 
+        document.getElementById('state').innerHTML = 'Please select state'
+		return false; 
+    }
+    if ( password.value != password2.value ) {
+        document.getElementById('pass').innerHTML = 'Password dose not match'
+        return false;
+    } 
+
+
+
+	return true; 
+}</script> 
+
+</head>
+
+<body>
+    <div>
+        <center>
+
+            <h1>SignUp here</h1>
+            <form name="RegForm" action="/" method="POST" onsubmit="return myfunction()" enctype="multipart/form-data">
+                Name:
+                <input type="text" name="name" size="50" placeholder="Full Name" required /><br>
+                <span id="name" style="color: crimson;"></span><br>
+                Email:
+                <input type="email" name="email" size="50" placeholder="youremail@email.com" required /><br>
+                <span id="email" style="color: crimson;"></span><br>
+                Gender:
+                <input type="radio" name="gender" value="male" checked required> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other <br>
+                <span id="gender" style="color: crimson;"></span><br>
+                Upload:
+                <input type="file" name="f1"><br>
+                <span id="file" style="color: crimson;"></span><br>
+                Education:
+                <select name="education" required>
+                    <option value="Graduate">Graduate</option>
+                    <option value="12th">12th</option>
+                    <option value="10th">10th</option>
+                </select> <br>
+                <span id="education" style="color: crimson;"></span><br>
+                City:
+                <select name="city">
+                    <option type="text" value="Indore">Chhindwara</option>
+                    <option type="text" value="Indore">Indore</option>
+                    <option type="text" value="Bhopal">Bhopal</option>
+                </select><br>
+                <span id="city" style="color: crimson;"></span><br>
+                State:
+                <select name="state">
+                    <option value="M.P.">M.P.</option>
+                    <option value="Gujrat">Gujrat</option>
+                    <option value="M.H.">M.H</option>
+                </select><br>
+                <span id="state" style="color: crimson;"></span><br>
+                Password:
+                <input type="password" size="50" name="password" placeholder="Enter the Password" required /><br>
+                <span id="pass" style="color: crimson;"></span><br>
+                Confirm Pass:
+                <input type="password" size="50" name="password2" placeholder="Confirm Password" required /><br>
+                <!-- <span id="pass2"></span><br> -->
+                <input type="submit" value="Sign Up"><br>
+                <a href="/login">click to login</a>
+            </form>
+        </center>
+        <center>
+            <font color="green">
+                <h1><%= title %></h1>
+            </font>
+            <font color="green">
+                <h1><%= success %></h1>
+            </font>
+        </center>
+
+    </div>
+</body>
+
+</html>
